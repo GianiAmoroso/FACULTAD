@@ -28,11 +28,11 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 | | |
 |---|---|
 | **Nombre** | Spotify Tracks Dataset (`spotify-tracks-dataset-detailed`) |
-| **Fuente** | (https://www.kaggle.com/datasets/saichaitanyareddyai/spotify-tracks-dataset-audio-features) |
+| **Fuente** | [Kaggle: Spotify Tracks Dataset (Audio Features)](https://www.kaggle.com/datasets/saichaitanyareddyai/spotify-tracks-dataset-audio-features) |
 | **Cobertura** | Canciones de Spotify de distintos géneros, con su popularidad y características de audio |
-| **Licencia** | _[Según la fuente]_ |
+| **Licencia** | CC0: Public Domain |
 
-**Cómo obtenerlo:** _[Instrucciones de descarga, o ruta al archivo en `data/`]_
+**Cómo obtenerlo:** descargarlo desde el [link de Kaggle](https://www.kaggle.com/datasets/saichaitanyareddyai/spotify-tracks-dataset-audio-features) (botón *Download*, requiere cuenta gratuita) y guardar el CSV en la carpeta `data/`.
 
 ### Diccionario de datos
 
