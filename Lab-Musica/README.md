@@ -155,11 +155,11 @@ Lab-Musica/
 
 | Nombre | GitHub |
 |---|---|
-| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
+| _Kiara Cusce_ | [@usuario](https://github.com/usuario) |
+| _Milagros Gonzalez_ | [@usuario](https://github.com/usuario) |
+| _Ian Chalverat_ | [@usuario](https://github.com/usuario) |
+| _Luka Ygelman_ | [@usuario](https://github.com/usuario) |
+| _Gianluca Amoroso_ | [@GianiAmoroso](https://github.com/GianiAmoroso) |
 
 ---
 
@@ -179,6 +179,6 @@ Los *prompts* utilizados están documentados en el notebook, junto a cada celda.
 
 ## 🔗 Links
 
-- 📓 Notebook en Colab: _[link]_
+- 📓 Notebook en Colab: _[https://colab.research.google.com/drive/1cru-iGU5_YV_iGRTIEpqLH1wKiQRVaVK#scrollTo=SQsjs9qAQFPI]_
 - 📄 Informe: _[link]_
-- 📊 Presentación: _[link]_
+- 📊 Presentación: _[https://www.canva.com/design/DAHYGdB7fCY/WvV6k9WYQ0OdC-uf-KpF7g/edit]_
