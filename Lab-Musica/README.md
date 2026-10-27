@@ -12,7 +12,10 @@ Trabajo práctico grupal del **Laboratorio de Métodos Cuantitativos Aplicados a
 
 **Motivación.** La industria musical invierte mucho en lanzamientos sin saber qué va a funcionar. Identificar qué tienen en común los temas más escuchados (tempo, energía, bailabilidad, duración) da a artistas y productores evidencia para decidir con datos y no solo con intuición. El análisis muestra asociaciones, no causas: el éxito también depende de factores que los datos no capturan, como el marketing.
 
-**Principales hallazgos.** _Se completa al finalizar el análisis._
+**Hallazgos preliminares** (análisis en curso):
+
+- Las canciones de **3,5 a 4,5 minutos** tienen la mayor popularidad promedio (35,3 puntos), seguidas por las de 2,5 a 3,5 minutos (33,8). Las cortas (< 2,5 min: 30,2) y las largas (> 4,5 min: 31,6) quedan por debajo.
+- Los **hits** (popularidad > 70) son, en promedio, más bailables (*danceability* 0,625 contra 0,552 en las de baja popularidad), un poco más enérgicos (0,666 contra 0,641) y más alegres (*valence* 0,512 contra 0,479).
 
 ---
 
@@ -24,7 +27,7 @@ Trabajo práctico grupal del **Laboratorio de Métodos Cuantitativos Aplicados a
 |---|---|
 | **Nombre** | Spotify Tracks Dataset (`spotify-tracks-dataset-detailed`) |
 | **Fuente** | [Kaggle: Spotify Tracks Dataset (Audio Features)](https://www.kaggle.com/datasets/saichaitanyareddyai/spotify-tracks-dataset-audio-features) |
-| **Cobertura** | Canciones de Spotify de distintos géneros, con su popularidad y características de audio |
+| **Cobertura** | 114.000 filas (unas 89.700 canciones únicas, porque una misma canción puede figurar en varios géneros), con su popularidad y características de audio |
 | **Licencia** | CC0: Public Domain |
 
 **Cómo obtenerlo:** descargarlo desde el [link de Kaggle](https://www.kaggle.com/datasets/saichaitanyareddyai/spotify-tracks-dataset-audio-features) (botón *Download*, requiere cuenta gratuita) y guardar el CSV en la carpeta `data/`.
@@ -72,7 +75,7 @@ Trabajo práctico grupal del **Laboratorio de Métodos Cuantitativos Aplicados a
 |---|---|
 | **Nombre** | Spotify Global Music Dataset (2009–2025) |
 | **Fuente** | [Kaggle: Spotify Global Music Dataset (2009–2025)](https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025) |
-| **Cobertura** | Canciones publicadas entre 2009 y 2025, con datos del artista y del álbum |
+| **Cobertura** | 8.582 canciones con datos del artista y del álbum. Aunque el nombre dice 2009–2025, incluye lanzamientos desde la década de 1950 hasta 2025 |
 | **Licencia** | CC0: Public Domain |
 
 
@@ -118,13 +121,24 @@ Trabajo práctico grupal del **Laboratorio de Métodos Cuantitativos Aplicados a
 
 ## 🔬 Metodología
 
-1. **Exploración inicial** de ambos datasets: estructura, tipos de dato, valores nulos y duplicados.
-2. **Limpieza:** eliminación de canciones repetidas (la misma canción puede figurar en más de un género) y conversión de tipos (por ejemplo, la fecha de lanzamiento a año).
-3. **Cruce de datasets** por `track_id`, para sumar a cada canción su año de lanzamiento y los datos del artista.
-4. **Comparación** entre las canciones de mayor popularidad y el resto, según sus características de audio.
-5. **Visualización** de la evolución en el tiempo, las diferencias entre grupos y la relación entre variables.
+**Hecho hasta ahora** (Dataset 1):
 
-Herramientas: Python (pandas, matplotlib) en Google Colab.
+1. **Exploración inicial** de ambos datasets: primeras y últimas filas, estructura y columnas.
+2. **Limpieza:**
+   - Conversión de la duración de milisegundos a minutos (`duration_min`).
+   - Eliminación de canciones repetidas por `track_id`: de 114.000 filas quedan unas 89.700 canciones únicas.
+3. **Variables nuevas:**
+   - `duracion_categoria`: Corta (< 2,5 min), Ideal (2,5–3,5), Estándar (3,5–4,5) y Larga (> 4,5).
+   - `nivel_popularidad`: Baja (0–40), Media (41–70) y Alta / Hit (71–100).
+4. **Resúmenes agrupados** con `groupby`: popularidad según la duración, y bailabilidad, energía y positividad según el nivel de popularidad.
+5. **Gráficos:** distribución de la duración (histograma) y popularidad promedio por rango de duración (barras).
+
+**Próximos pasos:**
+
+- Gráfico de relación entre dos variables (por ejemplo, bailabilidad contra popularidad).
+- Cruce con el Dataset 2 por `track_id`, para analizar la evolución por año de lanzamiento y el peso del artista (seguidores y popularidad).
+
+Herramientas: Python (pandas, numpy, matplotlib, seaborn) en Google Colab.
 
 ---
 
@@ -145,9 +159,10 @@ Lab-Musica/
 
 ## ▶️ Cómo reproducir el análisis
 
-1. Descargar los dos datasets desde Kaggle (links arriba) y guardarlos en `data/`.
+1. Descargar los dos datasets desde Kaggle (links arriba).
 2. Abrir `notebooks/analisis_musica.ipynb` en Google Colab.
-3. Ejecutar todas las celdas (*Entorno de ejecución → Ejecutar todas*).
+3. Subir los CSV al panel de archivos de Colab con estos nombres: `spotify-tracks-dataset-detailed.csv` (Dataset 1) y `spotify_data clean.csv` (Dataset 2).
+4. Ejecutar todas las celdas (*Entorno de ejecución → Ejecutar todas*).
 
 ---
 
@@ -155,11 +170,11 @@ Lab-Musica/
 
 | Nombre | GitHub |
 |---|---|
-| _Kiara Cusce_ | [@usuario](https://github.com/usuario) |
-| _Milagros Gonzalez_ | [@usuario](https://github.com/usuario) |
-| _Ian Chalverat_ | [@usuario](https://github.com/usuario) |
-| _Luka Ygelman_ | [@usuario](https://github.com/usuario) |
-| _Gianluca Amoroso_ | [@GianiAmoroso](https://github.com/GianiAmoroso) |
+| Kiara Cusce | [@usuario](https://github.com/usuario) |
+| Milagros Gonzalez | [@usuario](https://github.com/usuario) |
+| Ian Chalverat | [@usuario](https://github.com/usuario) |
+| Luka Ygelman | [@usuario](https://github.com/usuario) |
+| Gianluca Amoroso | [@GianiAmoroso](https://github.com/GianiAmoroso) |
 
 ---
 
@@ -169,7 +184,7 @@ Usamos IA como asistente en distintas etapas del trabajo. La interpretación de 
 
 | Etapa | Herramienta | Uso |
 |---|---|---|
-| Análisis | _[Claude / ChatGPT]_ | _[Ej.: sugerir transformaciones y tipos de gráfico]_ |
+| Análisis | _[herramienta]_ | Sintaxis de pandas (conversión a minutos, duplicados, `pd.cut`, `groupby`) y de gráficos con seaborn |
 | Informe | _[Claude / Overleaf]_ | _[Ej.: redacción inicial en LaTeX]_ |
 | Presentación | _[Canva IA / Gamma]_ | _[Ej.: diseño de diapositivas]_ |
 
@@ -179,6 +194,6 @@ Los *prompts* utilizados están documentados en el notebook, junto a cada celda.
 
 ## 🔗 Links
 
-- 📓 Notebook en Colab: _[https://colab.research.google.com/drive/1cru-iGU5_YV_iGRTIEpqLH1wKiQRVaVK#scrollTo=SQsjs9qAQFPI]_
+- 📓 Notebook en Colab: [abrir en Colab](https://colab.research.google.com/drive/1cru-iGU5_YV_iGRTIEpqLH1wKiQRVaVK)
 - 📄 Informe: _[link]_
-- 📊 Presentación: _[https://www.canva.com/design/DAHYGdB7fCY/WvV6k9WYQ0OdC-uf-KpF7g/edit]_
+- 📊 Presentación: [ver en Canva](https://www.canva.com/design/DAHYGdB7fCY/WvV6k9WYQ0OdC-uf-KpF7g/edit)
