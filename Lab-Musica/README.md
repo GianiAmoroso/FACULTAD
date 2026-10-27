@@ -73,6 +73,54 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 ---
 
+### Dataset 2: Spotify Global Music Dataset (2009–2025)
+
+| | |
+|---|---|
+| **Fuente** | [Kaggle: Spotify Global Music Dataset (2009–2025)](https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025) |
+| **Cobertura** | Canciones publicadas entre 2009 y 2025, con datos del artista y del álbum |
+| **Licencia** | CC0: Public Domain |
+
+**Cómo obtenerlo:** descargarlo desde el [link de Kaggle](https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025) y guardar el CSV en la carpeta `data/`.
+
+**Relación con el Dataset 1:** ambos tienen `track_id`, así que se pueden cruzar (`merge`) para sumar a cada canción su fecha de lanzamiento y los datos del artista.
+
+#### Diccionario de datos
+
+> La fuente no documenta las columnas: las descripciones se basan en los nombres y en cómo Spotify define esos campos.
+
+**Canción**
+
+| Variable | Tipo | Descripción |
+|---|---|---|
+| `track_id` | str | ID único de la canción en Spotify (clave para cruzar con el Dataset 1) |
+| `track_name` | str | Nombre de la canción |
+| `track_number` | int | Posición de la canción dentro del álbum (1 = primera) |
+| `track_popularity` | int (0–100) | Popularidad de la canción, igual que `popularity` del Dataset 1 |
+| `explicit` | bool | Si tiene letra explícita |
+| `track_duration_min` | float | Duración en minutos |
+
+**Artista**
+
+| Variable | Tipo | Descripción |
+|---|---|---|
+| `artist_name` | str | Nombre del artista |
+| `artist_popularity` | int (0–100) | Popularidad del artista, calculada a partir de la popularidad de todas sus canciones |
+| `artist_followers` | int | Cantidad de seguidores del artista en Spotify |
+| `artist_genres` | str | Géneros que Spotify le asigna al artista (Spotify asigna géneros a artistas, no a canciones) |
+
+**Álbum**
+
+| Variable | Tipo | Descripción |
+|---|---|---|
+| `album_id` | str | ID único del álbum en Spotify |
+| `album_name` | str | Nombre del álbum |
+| `album_release_date` | str (fecha) | Fecha de lanzamiento del álbum. Puede venir completa (`2015-03-20`) o solo con el año (`2015`) |
+| `album_total_tracks` | int | Cantidad de canciones del álbum |
+| `album_type` | str | Tipo de lanzamiento: `album`, `single` o `compilation` |
+
+---
+
 ## 📁 Estructura del repositorio
 
 ```
