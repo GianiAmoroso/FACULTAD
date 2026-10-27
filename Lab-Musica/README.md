@@ -15,7 +15,6 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 > **¿Qué características musicales distinguen a las canciones más reproducidas en Spotify durante los últimos años del resto, y qué patrones podrían orientar decisiones de producción y lanzamiento?**
 
-| | |
 | **¿Cuál es la pregunta?** |¿Qué patrones comparten las canciones más reproducidas de la historia reciente para replicar su éxito?|
 | **¿Por qué vale la pena responderla?** |La industria musical invierte mucho en lanzamientos sin saber qué va a funcionar. Identificar qué tienen en común los temas más escuchados (tempo, energía, bailabilidad, duración) da a artistas y productores evidencia para decidir con datos y no solo con intuición. El análisis muestra asociaciones, no causas: el éxito también depende de factores que los datos no capturan, como el marketing.|
 | **¿Qué respuesta encontramos?** | _Se completa al final del análisis_ |
