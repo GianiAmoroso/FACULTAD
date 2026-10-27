@@ -1,13 +1,8 @@
-# 🎵 Lab-Música
+# 🎵 Lab-Música: ¿qué tienen en común los hits de Spotify?
 
-**Trabajo Práctico Grupal — Exploración, análisis y presentación de datos reales asistida por IA**
+Análisis de datos de canciones de Spotify para identificar qué características musicales distinguen a los temas más populares del resto.
 
-Laboratorio de Métodos Cuantitativos Aplicados a la Gestión
-Tecnicatura Universitaria en Gestión y Análisis de Datos en Organizaciones
-Facultad de Ciencias Económicas — Universidad de Buenos Aires
-2do Cuatrimestre 2026
-
-> 📅 **Entrega y defensa:** viernes 6 de noviembre de 2026, antes del inicio de la clase.
+Trabajo práctico grupal del **Laboratorio de Métodos Cuantitativos Aplicados a la Gestión**, Tecnicatura Universitaria en Gestión y Análisis de Datos en Organizaciones (FCE, UBA), 2do cuatrimestre 2026.
 
 ---
 
@@ -15,16 +10,15 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 > **¿Qué características musicales distinguen a las canciones más reproducidas en Spotify durante los últimos años del resto, y qué patrones podrían orientar decisiones de producción y lanzamiento?**
 
-**¿Cuál es la pregunta?** ¿Qué patrones comparten las canciones más reproducidas de la historia reciente para replicar su éxito?
- 
-**¿Por qué vale la pena responderla?** La industria musical invierte mucho en lanzamientos sin saber qué va a funcionar. Identificar qué tienen en común los temas más escuchados (tempo, energía, bailabilidad, duración) da a artistas y productores evidencia para decidir con datos y no solo con intuición. El análisis muestra asociaciones, no causas: el éxito también depende de factores que los datos no capturan, como el marketing.
- 
-**¿Qué respuesta encontramos?**  _Se completa al final del análisis_ 
+**Motivación.** La industria musical invierte mucho en lanzamientos sin saber qué va a funcionar. Identificar qué tienen en común los temas más escuchados (tempo, energía, bailabilidad, duración) da a artistas y productores evidencia para decidir con datos y no solo con intuición. El análisis muestra asociaciones, no causas: el éxito también depende de factores que los datos no capturan, como el marketing.
+
+**Principales hallazgos.** _Se completa al finalizar el análisis._
 
 ---
 
-## 🗂️ 
-## Dataset 1
+## 🗂️ Datos
+
+### Dataset 1: Spotify Tracks Dataset (Audio Features)
 
 | | |
 |---|---|
@@ -35,7 +29,7 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 **Cómo obtenerlo:** descargarlo desde el [link de Kaggle](https://www.kaggle.com/datasets/saichaitanyareddyai/spotify-tracks-dataset-audio-features) (botón *Download*, requiere cuenta gratuita) y guardar el CSV en la carpeta `data/`.
 
-### Diccionario de datos
+#### Diccionario de datos
 
 **Identificación**
 
@@ -72,9 +66,7 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 | `mode` | int (0/1) | Modo: 1 = mayor (suele sonar alegre), 0 = menor (suele sonar triste) |
 | `time_signature` | int (3–7) | Compás: pulsos por compás (4 = 4/4, el más común) |
 
----
-
-### Dataset 2: 
+### Dataset 2: Spotify Global Music Dataset (2009–2025)
 
 | | |
 |---|---|
@@ -124,103 +116,69 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 ---
 
+## 🔬 Metodología
+
+1. **Exploración inicial** de ambos datasets: estructura, tipos de dato, valores nulos y duplicados.
+2. **Limpieza:** eliminación de canciones repetidas (la misma canción puede figurar en más de un género) y conversión de tipos (por ejemplo, la fecha de lanzamiento a año).
+3. **Cruce de datasets** por `track_id`, para sumar a cada canción su año de lanzamiento y los datos del artista.
+4. **Comparación** entre las canciones de mayor popularidad y el resto, según sus características de audio.
+5. **Visualización** de la evolución en el tiempo, las diferencias entre grupos y la relación entre variables.
+
+Herramientas: Python (pandas, matplotlib) en Google Colab.
+
+---
+
 ## 📁 Estructura del repositorio
 
 ```
 Lab-Musica/
 ├── README.md               ← este archivo
-├── data/                   ← dataset (o instrucciones para descargarlo)
+├── data/                   ← datasets
 ├── notebooks/
-│   └── analisis_musica.ipynb   ← notebook de Colab, ejecutado completo
-├── figuras/                ← gráficos exportados con plt.savefig()
+│   └── analisis_musica.ipynb   ← análisis completo en Python
+├── figuras/                ← gráficos exportados del notebook
 ├── informe/
-│   ├── informe.pdf         ← informe académico final
-│   └── overleaf.md         ← link al proyecto de Overleaf (si se usa LaTeX)
+│   └── informe.pdf         ← informe académico con los resultados
 └── presentacion/
-    └── presentacion.pdf    ← diapositivas (o link a la presentación)
+    └── presentacion.pdf    ← diapositivas de la defensa
 ```
 
----
+## ▶️ Cómo reproducir el análisis
 
-## 🧭 Partes del trabajo
-
-### Parte 1: Análisis en Python (Google Colab)
-
-El notebook tiene que estar **ejecutado completo** y exportado como `.ipynb`. Cada celda de código va precedida por una celda Markdown que explica qué se hace y por qué.
-
-- [ ] **3.1 Carga y exploración:** `.head()`, `.tail()`, dimensiones, `.dtypes`, cobertura, nulos, duplicados y `.describe()`
-- [ ] **3.2 Pregunta de investigación:** celda Markdown con la pregunta, su motivación y la respuesta encontrada
-- [ ] **3.3 Transformaciones:** al menos **2 transformaciones justificadas** y **2 estadísticos agrupados** con `.groupby()`
-- [ ] **3.4 Gráficos:** mínimo **3 gráficos de tipos distintos**, con título, ejes etiquetados e interpretación:
-  - [ ] Evolución temporal o distribución (línea, histograma o boxplot)
-  - [ ] Comparación entre categorías (barras)
-  - [ ] Relación entre dos variables (dispersión o líneas superpuestas)
-- [ ] Indicar qué celdas contaron con asistencia de IA y qué *prompt* se usó
-
-### Parte 2: Informe académico (PDF, 3 a 5 páginas)
-
-- [ ] §1 Resumen (5–8 líneas)
-- [ ] §2 Introducción (½ pág.)
-- [ ] §3 Datos y metodología (½ pág.)
-- [ ] §4 Resultados (1–2 pág.)
-- [ ] §5 Conclusiones (½ pág.)
-- [ ] §6 Reflexión metodológica (¼ pág.)
-- [ ] §7 Bibliografía (opcional)
-- [ ] Revisión intragrupal (obligatoria)
-- [ ] Validación externa con otro grupo (recomendada)
-
-Redacción en tercera persona o impersonal. El informe tiene que entenderse sin abrir el notebook.
-
-### Parte 3: Presentación con IA
-
-- [ ] Diapositivas (6 a 10) hechas con Canva IA, PowerPoint Copilot, Gamma u otra herramienta similar
-- [ ] Exposición de **5 a 7 minutos** (10 como máximo, contando las preguntas), con todos los integrantes conectados
-- [ ] *(Opcional)* Video de 2 a 4 minutos **o** sitio web con los gráficos, los resultados y las conclusiones
+1. Descargar los dos datasets desde Kaggle (links arriba) y guardarlos en `data/`.
+2. Abrir `notebooks/analisis_musica.ipynb` en Google Colab.
+3. Ejecutar todas las celdas (*Entorno de ejecución → Ejecutar todas*).
 
 ---
 
 ## 👥 Integrantes
 
-| Nombre | N° de registro | Usuario de GitHub |
-|---|---|---|
-| _[Nombre Apellido]_ | _[XXXXXX]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | _[XXXXXX]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | _[XXXXXX]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | _[XXXXXX]_ | [@usuario](https://github.com/usuario) |
-| _[Nombre Apellido]_ | _[XXXXXX]_ | [@usuario](https://github.com/usuario) |
-
-> ⚠️ **Todos los integrantes tienen que tener commits significativos.** La cátedra revisa el historial: quien no tenga commits no acredita el trabajo grupal.
+| Nombre | GitHub |
+|---|---|
+| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
+| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
+| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
+| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
+| _[Nombre Apellido]_ | [@usuario](https://github.com/usuario) |
 
 ---
 
-## 🤖 Uso de IA
+## 🤖 Uso de inteligencia artificial
 
-El trabajo usa IA como asistente en todas las etapas. La interpretación y el criterio analítico son responsabilidad del grupo.
+Usamos IA como asistente en distintas etapas del trabajo. La interpretación de los resultados y las conclusiones son del grupo.
 
-| Etapa | Herramienta | Para qué se usó |
+| Etapa | Herramienta | Uso |
 |---|---|---|
 | Análisis | _[Claude / ChatGPT]_ | _[Ej.: sugerir transformaciones y tipos de gráfico]_ |
 | Informe | _[Claude / Overleaf]_ | _[Ej.: redacción inicial en LaTeX]_ |
 | Presentación | _[Canva IA / Gamma]_ | _[Ej.: diseño de diapositivas]_ |
 
-Los *prompts* usados en el análisis están documentados en el notebook, junto a cada celda.
+Los *prompts* utilizados están documentados en el notebook, junto a cada celda.
 
 ---
 
 ## 🔗 Links
 
 - 📓 Notebook en Colab: _[link]_
-- 📄 Proyecto en Overleaf: _[link]_
+- 📄 Informe: _[link]_
 - 📊 Presentación: _[link]_
-- 🎬 Video / 🌐 Sitio web (opcional): _[link]_
-
----
-
-## ✅ Checklist de entrega (6/11/2026)
-
-- [ ] Notebook `.ipynb` **ejecutado** en el repositorio
-- [ ] PDF del informe en el repositorio
-- [ ] Dataset o instrucciones para descargarlo
-- [ ] Presentación (archivo o link) en el repositorio
-- [ ] Commits de **todos** los integrantes
-- [ ] PDF único de entrega en el campus, con la portada (nombres, registros, usuarios de GitHub y link al repo) y el link a la presentación, el video o el sitio
