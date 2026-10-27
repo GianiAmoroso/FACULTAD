@@ -23,7 +23,8 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 ---
 
-## 🗂️ Dataset
+## 🗂️ 
+## Dataset 1
 
 | | |
 |---|---|
@@ -73,13 +74,15 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 ---
 
-### Dataset 2: Spotify Global Music Dataset (2009–2025)
+### Dataset 2: 
 
 | | |
 |---|---|
+| **Nombre** | Spotify Global Music Dataset (2009–2025) |
 | **Fuente** | [Kaggle: Spotify Global Music Dataset (2009–2025)](https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025) |
 | **Cobertura** | Canciones publicadas entre 2009 y 2025, con datos del artista y del álbum |
 | **Licencia** | CC0: Public Domain |
+
 
 **Cómo obtenerlo:** descargarlo desde el [link de Kaggle](https://www.kaggle.com/datasets/wardabilal/spotify-global-music-dataset-20092025) y guardar el CSV en la carpeta `data/`.
 
