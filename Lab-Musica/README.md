@@ -28,7 +28,7 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 | | |
 |---|---|
 | **Nombre** | Spotify Tracks Dataset (`spotify-tracks-dataset-detailed`) |
-| **Fuente** | _[Link de descarga]_ |
+| **Fuente** | (https://www.kaggle.com/datasets/saichaitanyareddyai/spotify-tracks-dataset-audio-features) |
 | **Cobertura** | Canciones de Spotify de distintos géneros, con su popularidad y características de audio |
 | **Licencia** | _[Según la fuente]_ |
 
