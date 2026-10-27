@@ -26,27 +26,49 @@ Facultad de Ciencias Económicas — Universidad de Buenos Aires
 
 | | |
 |---|---|
-| **Nombre** | _[A definir]_ |
-| **Fuente** | _[Link. Ej.: Kaggle, Spotify API]_ |
-| **Cobertura** | _[Período / región / cantidad de canciones]_ |
+| **Nombre** | Spotify Tracks Dataset (`spotify-tracks-dataset-detailed`) |
+| **Fuente** | _[Link de descarga]_ |
+| **Cobertura** | Canciones de Spotify de distintos géneros, con su popularidad y características de audio |
 | **Licencia** | _[Según la fuente]_ |
 
 **Cómo obtenerlo:** _[Instrucciones de descarga, o ruta al archivo en `data/`]_
 
 ### Diccionario de datos
 
+**Identificación**
+
 | Variable | Tipo | Descripción |
 |---|---|---|
-| _ej.: `popularity`_ | int (0–100) | Popularidad de la canción en la plataforma |
-| _ej.: `danceability`_ | float (0–1) | Qué tan apta es la canción para bailar |
-| _ej.: `energy`_ | float (0–1) | Intensidad y actividad percibida |
-| _ej.: `valence`_ | float (0–1) | Positividad musical (alegre vs. triste) |
-| _ej.: `tempo`_ | float (BPM) | Velocidad estimada |
-| _ej.: `duration_ms`_ | int | Duración en milisegundos |
-| _ej.: `genre`_ | str | Género musical |
-| _ej.: `year`_ | int | Año de lanzamiento |
+| `track_id` | str | ID único de la canción en Spotify |
+| `artists` | str | Artista/s; si hay más de uno, van separados por `;` |
+| `album_name` | str | Nombre del álbum |
+| `track_name` | str | Nombre de la canción |
+| `track_genre` | str | Género musical |
 
-> Ajustar esta tabla a las columnas reales del dataset elegido.
+**Éxito y formato**
+
+| Variable | Tipo | Descripción |
+|---|---|---|
+| `popularity` | int (0–100) | Popularidad según Spotify. Se calcula por la cantidad de reproducciones y qué tan recientes son: 100 = lo más escuchado |
+| `duration_ms` | int | Duración en milisegundos (÷ 60.000 = minutos) |
+| `explicit` | bool | Si tiene letra explícita (`True`/`False`) |
+
+**Características de audio** (las calcula Spotify analizando el sonido)
+
+| Variable | Tipo | Descripción |
+|---|---|---|
+| `danceability` | float (0–1) | Qué tan bailable es, según ritmo, estabilidad del pulso y regularidad |
+| `energy` | float (0–1) | Intensidad percibida: rápida, fuerte y ruidosa → cerca de 1; tranquila → cerca de 0 |
+| `loudness` | float (dB) | Volumen promedio. Valores negativos, entre -60 y 0: más cerca de 0 = más fuerte |
+| `speechiness` | float (0–1) | Cuánta voz hablada tiene. > 0,66 casi todo hablado (podcast); 0,33–0,66 mezcla (rap); < 0,33 música |
+| `acousticness` | float (0–1) | Probabilidad de que sea acústica (sin instrumentos eléctricos) |
+| `instrumentalness` | float (0–1) | Probabilidad de que no tenga voz. > 0,5 = probablemente instrumental |
+| `liveness` | float (0–1) | Probabilidad de que sea en vivo (se detecta público). > 0,8 = probablemente en vivo |
+| `valence` | float (0–1) | Positividad: cerca de 1 = alegre/eufórica; cerca de 0 = triste/enojada |
+| `tempo` | float (BPM) | Velocidad en pulsos por minuto |
+| `key` | int (-1 a 11) | Tonalidad: 0 = Do, 1 = Do#, 2 = Re… 11 = Si; -1 = no detectada |
+| `mode` | int (0/1) | Modo: 1 = mayor (suele sonar alegre), 0 = menor (suele sonar triste) |
+| `time_signature` | int (3–7) | Compás: pulsos por compás (4 = 4/4, el más común) |
 
 ---
 
